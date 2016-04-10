@@ -29,11 +29,11 @@ module EmbeddedModel
     end
 
     def object_builder
-      ->(attrs) { attrs.is_a?(model) ? attrs : model.new(attrs) }
+      ->(attrs) { attrs.is_a?(model) ? attrs : model.new(attrs.try(:to_hash)) }
     end
 
     def collection_builder
-      ->(arr) { arr.map(&object_builder) }
+      ->(arr) { arr.try(:map, &object_builder) }
     end
   end
 end
