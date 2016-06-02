@@ -1,27 +1,19 @@
-require 'active_record/connection_adapters/postgresql/oid/json'
-
 module EmbeddedModel
-  class Type < ::ActiveRecord::ConnectionAdapters::PostgreSQL::OID::Json
+  class Type < ActiveRecord::Type::Internal::AbstractJson
     def initialize(&builder)
       @builder = builder
     end
 
-    def type_cast_from_database(value)
-      type_cast(super)
+    def cast(attrs)
+      @builder.call(attrs)
     end
 
-    def type_cast_from_user(value)
-      type_cast(value)
+    def serialize(obj)
+      super(obj.as_json)
     end
 
-    def type_cast_for_database(value)
-      super(value.as_json)
-    end
-
-    private
-
-    def cast_value(value)
-      @builder.call(value)
+    def deserialize(json)
+      cast(super)
     end
   end
 end

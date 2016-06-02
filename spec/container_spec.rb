@@ -73,5 +73,13 @@ RSpec.describe 'Container' do
       expect(department.boss).to eq boss
       expect(department.employees).to match_array employees
     end
+
+    it "doesn't process nil-values" do
+      department.boss = nil
+      department.employees = [nil, nil]
+
+      expect(department.boss).to eq nil
+      expect(department.employees).to eq [nil, nil]
+    end
   end
 end

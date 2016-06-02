@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'activerecord', '~> 4.2'
+  spec.add_dependency 'activerecord', '5.0.0.rc1'
 
   spec.add_development_dependency 'bundler', '~> 1.11'
   spec.add_development_dependency 'rspec', '~> 3.0'

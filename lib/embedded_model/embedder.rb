@@ -29,7 +29,14 @@ module EmbeddedModel
     end
 
     def object_builder
-      ->(attrs) { attrs.is_a?(model) ? attrs : model.new(attrs.try(:to_hash)) }
+      ->(object_or_attributes) do
+        if object_or_attributes.is_a?(model)
+          object_or_attributes
+        else
+          attributes = object_or_attributes.try(:to_hash)
+          model.new(attributes) if attributes
+        end
+      end
     end
 
     def collection_builder
