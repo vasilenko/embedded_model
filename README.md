@@ -2,8 +2,6 @@
 
 A simple extension for ActiveRecord allowing to embed plain-models and store them as JSON. It's well-suited in case the use of full-featured models with underlying tables is redundant.
 
-Works with ActiveRecord ~> 4.2. Support of the 5th version has not been implemented yet.
-
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -19,6 +17,13 @@ And then execute:
 Or install it yourself as:
 
     $ gem install embedded_model
+
+
+Current version of the gem works with ActiveRecord 5.0.0.rc1 only, but previous one fits well for 4.2.
+
+```ruby
+gem 'embedded_model', '~> 0.1.0'
+```
 
 ## Usage
 
