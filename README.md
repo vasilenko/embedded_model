@@ -19,7 +19,7 @@ Or install it yourself as:
     $ gem install embedded_model
 
 
-Current version of the gem works with ActiveRecord 5.0.0.rc1 only, but previous one fits well for 4.2.
+Current version of the gem works with ActiveRecord ~> 5.1 only, but previous one fits well for 4.2.
 
 ```ruby
 gem 'embedded_model', '~> 0.1.0'
